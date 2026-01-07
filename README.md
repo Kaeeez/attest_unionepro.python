@@ -11,7 +11,7 @@
 
 DB_HOST; DB_NAME; DB_USER; DB_PASSWORD; DB_PORT;
 
-По умолчанию:
+По умолчанию:  
 host: localhost  
 db: postgres  
 user: postgres  
