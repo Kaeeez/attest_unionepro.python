@@ -31,3 +31,19 @@ class TestTask(unittest.TestCase):
         self.assertEqual(task.project_id, 10)
         self.assertEqual(task.employee_id, 20)
 
+class TestProject(unittest.TestCase):
+    def test_add_task(self):
+        proj = Project(id=1, name='Проект 1')
+        task = Task(id=1, title='Задача 1', description='Тест', status=IN_PROGRESS)
+        proj.add_task(task)
+        self.assertEqual(len(proj.tasks), 1)
+        self.assertIs(proj.tasks[0], task)
+
+    def test_add_task_type_error(self):
+        proj = Project(id=2, name='Проект 2')
+        with self.assertRaises(TypeError):
+            proj.add_task('Не задача')
+
+
+if __name__ == '__main__':
+    unittest.main()
