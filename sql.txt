@@ -1,0 +1,23 @@
+Пример создания таблиц в базе данных:
+
+CREATE TABLE employees (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(100),
+    position VARCHAR(50),
+    salary FLOAT,
+    hours_worked INTEGER
+);
+
+CREATE TABLE tasks (
+    id SERIAL PRIMARY KEY,
+    title VARCHAR(100),
+    description TEXT,
+    status VARCHAR(20),
+    project_id INTEGER REFERENCES projects(id),
+    employee_id INTEGER REFERENCES employees(id)
+);
+
+CREATE TABLE projects (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(100)
+);
